@@ -8,7 +8,6 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Bruno Ace SC', sans-serif;
@@ -23,33 +22,16 @@
       transform: scale(1.05);
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-    .modal-content {
-      background: transparent;
-      border: none;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: white;
-      font-size: 2rem;
-      background: rgba(0,0,0,0.4);
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .nav-btn:hover {
-      background: rgba(0,0,0,0.7);
-    }
-    .prev-btn { left: 10px; }
-    .next-btn { right: 10px; }
     footer {
       background: #000;
       color: #fff;
       padding: 15px 0;
       text-align: center;
       margin-top: 40px;
+    }
+    .nav-link.active {
+      font-weight: bold;
+      border-bottom: 2px solid #000;
     }
   </style>
 </head>
@@ -75,104 +57,126 @@
 <!-- Conteúdo -->
 <div class="container py-5">
   <h2 class="text-center mb-4">Meus Projetos</h2>
-  <div class="row g-4" id="gallery">
-    <!-- Repetição de imagens -->
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/1.png" class="img-fluid gallery-img" data-bs-index="0">
+
+  <!-- Abas de Categorias -->
+  <ul class="nav nav-tabs justify-content-center mb-4" id="categoryTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="logos-tab" data-bs-toggle="tab" data-bs-target="#logos" type="button" role="tab">Logotipos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="digital-tab" data-bs-toggle="tab" data-bs-target="#digital" type="button" role="tab">Arte Digital</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="impressos-tab" data-bs-toggle="tab" data-bs-target="#impressos" type="button" role="tab">Impressos</button>
+    </li>
+  </ul>
+
+  <!-- Conteúdo das Categorias -->
+  <div class="tab-content">
+    <!-- Logotipos -->
+    <div class="tab-pane fade show active" id="logos" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/1.png" class="img-fluid gallery-img" alt="One Burguer"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/2.png" class="img-fluid gallery-img" alt="França Express"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/3.png" class="img-fluid gallery-img" alt="Mayck Dias"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/4.png" class="img-fluid gallery-img" alt="Luna Tulle"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/5.png" class="img-fluid gallery-img" alt="Decorart Gesso 3D"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/6.png" class="img-fluid gallery-img" alt="AG AutoShine"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/7.png" class="img-fluid gallery-img" alt="Projeto Rock na Rua"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/8.png" class="img-fluid gallery-img" alt="Desordem Inc"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/9.png" class="img-fluid gallery-img" alt="Carnivora Skates"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/10.png" class="img-fluid gallery-img" alt="Punk Produções"></div>
+      </div>
     </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/2.png" class="img-fluid gallery-img" data-bs-index="1">
+
+    <!-- Arte Digital -->
+    <div class="tab-pane fade" id="digital" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/digital1.png" class="img-fluid gallery-img" alt="Arte Digital 1"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/digital2.png" class="img-fluid gallery-img" alt="Arte Digital 2"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/digital3.png" class="img-fluid gallery-img" alt="Arte Digital 3"></div>
+      </div>
     </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/3.png" class="img-fluid gallery-img" data-bs-index="2">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/4.png" class="img-fluid gallery-img" data-bs-index="3">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/5.png" class="img-fluid gallery-img" data-bs-index="4">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/6.png" class="img-fluid gallery-img" data-bs-index="5">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/7.png" class="img-fluid gallery-img" data-bs-index="6">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/8.png" class="img-fluid gallery-img" data-bs-index="7">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/9.png" class="img-fluid gallery-img" data-bs-index="8">
-    </div>
-    <div class="col-sm-6 col-md-4 col-lg-3">
-      <img src="img/10.png" class="img-fluid gallery-img" data-bs-index="9">
+
+    <!-- Impressos -->
+    <div class="tab-pane fade" id="impressos" role="tabpanel">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/impressos1.png" class="img-fluid gallery-img" alt="Impresso 1"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/impressos2.png" class="img-fluid gallery-img" alt="Impresso 2"></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><img src="img/impressos3.png" class="img-fluid gallery-img" alt="Impresso 3"></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
+
+<!-- Modal de visualização -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <button class="nav-btn prev-btn">&laquo;</button>
+    <div class="modal-content position-relative">
+      <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y prev-btn">&laquo;</button>
       <img src="" class="img-fluid w-100" id="modalImage">
-      <button class="nav-btn next-btn">&raquo;</button>
+      <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y next-btn">&raquo;</button>
     </div>
   </div>
 </div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script do modal -->
+<script>
+  const galleryImages = document.querySelectorAll('.gallery-img');
+let currentIndex = 0;
+let currentImages = []; // imagens da aba atual
+const modalImage = document.getElementById('modalImage');
+const imageModalEl = document.getElementById('imageModal');
+const imageModal = new bootstrap.Modal(imageModalEl);
+
+// Abre modal ao clicar
+galleryImages.forEach(img => {
+  img.addEventListener('click', (e) => {
+    const activeTab = document.querySelector('.tab-pane.active'); // aba ativa
+    currentImages = Array.from(activeTab.querySelectorAll('.gallery-img')).map(i => i.src);
+    currentIndex = currentImages.indexOf(e.target.src);
+    showImage();
+    imageModal.show();
+  });
+});
+
+function showImage() {
+  modalImage.src = currentImages[currentIndex];
+}
+
+// Navegação
+document.querySelector('.prev-btn').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  showImage();
+});
+document.querySelector('.next-btn').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  showImage();
+});
+
+// Teclado
+document.addEventListener('keydown', (e) => {
+  if (imageModalEl.classList.contains('modal-open')) {
+    if (e.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      showImage();
+    }
+    if (e.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      showImage();
+    }
+  }
+});
+</script>
 
 <!-- Rodapé -->
 <footer>
   <p>&copy; 2023 Matheus Reis</p>
 </footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  const images = [
-    "img/1.png","img/2.png","img/3.png","img/4.png","img/5.png",
-    "img/6.png","img/7.png","img/8.png","img/9.png","img/10.png"
-  ];
-
-  let currentIndex = 0;
-  const modalImage = document.getElementById('modalImage');
-  const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-
-  document.querySelectorAll('.gallery-img').forEach(img => {
-    img.addEventListener('click', () => {
-      currentIndex = parseInt(img.getAttribute('data-bs-index'));
-      showImage();
-      imageModal.show();
-    });
-  });
-
-  function showImage() {
-    modalImage.src = images[currentIndex];
-  }
-
-  document.querySelector('.prev-btn').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage();
-  });
-
-  document.querySelector('.next-btn').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (document.getElementById('imageModal').classList.contains('show')) {
-      if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImage();
-      }
-      if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage();
-      }
-    }
-  });
-</script>
 
 </body>
 </html>
